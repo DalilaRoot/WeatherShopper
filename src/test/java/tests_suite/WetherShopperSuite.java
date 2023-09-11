@@ -31,8 +31,8 @@ public class WetherShopperSuite extends SetupTeardownTest {
         Assert.assertEquals (pageBuyMoisturizers.getPrix1(),checoutPage.getTotal());
         Assert.assertEquals (pageBuyMoisturizers.getProduit1(),checoutPage.getTitreProd());
         Assert.assertEquals ("Pay with Card",checoutPage.clickButtonpaywithcard());
-        Assert.assertTrue(checoutPage.checkPopupStripe());
+        Assert.assertTrue(checoutPage.addInformationCard());
         PayementSuccessPage payementSuccessPage = new PayementSuccessPage(driver);
-       // Assert.assertTrue(payementSuccessPage.VerifyPaymentSuccess());
+        Assert.assertTrue(payementSuccessPage.VerifyPaymentSuccess());
     }
 }

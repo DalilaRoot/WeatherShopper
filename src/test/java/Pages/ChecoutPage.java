@@ -43,8 +43,8 @@ public class ChecoutPage {
         driver.findElement(paywithcard).click();
         return  paywithcard1;
     }
-    public boolean checkPopupStripe() {
-        boolean b=true;
+    public boolean addInformationCard() {
+
         driver.switchTo().frame(0);
         driver.findElement(email).sendKeys("oudalila@gmail.com");
         driver.findElement(cardNumber).sendKeys("3434");
@@ -55,8 +55,9 @@ public class ChecoutPage {
         driver.findElement(cvv).sendKeys("177");
         driver.findElement(CP).sendKeys("AAA");
         driver.findElement(Acheter).click();
-        //b = driver.findElement(stripe).isDisplayed();
-        return  b;
+        driver.switchTo().defaultContent();
+
+        return  true;
 
     }
 
