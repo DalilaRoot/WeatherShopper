@@ -15,7 +15,7 @@ public class PayementSuccessPage {
     public void VerifyPaymentSuccess(){
         boolean b;
         b = driver.findElement(title).isDisplayed();
-        Assert.assertTrue(b);
+        Assert.assertTrue(b) ;
 
     }
 }

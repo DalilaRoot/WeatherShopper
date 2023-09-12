@@ -9,7 +9,7 @@ public class ChecoutPage {
     By total = By.xpath("//p[@id='total']");
     By titre=By.xpath("//td[1]");
     By paywithcard = By.xpath("//span[contains(.,'Pay with Card')]");
-    By stripe = By.xpath("//h1[contains(.,'Stripe.com')]");
+   // By stripe = By.xpath("//h1[contains(.,'Stripe.com')]");
 
     By email= By.xpath("//input[@id='email']");
     By cardNumber= By.xpath("//input[contains(@id,'card_number')]");
