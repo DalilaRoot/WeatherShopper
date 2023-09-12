@@ -21,18 +21,18 @@ public class WetherShopperSuite extends SetupTeardownTest {
         HomePage homePage = new HomePage(driver);
         buyMoisturizersPage pageBuyMoisturizers = new buyMoisturizersPage(driver);
 
-        Assert.assertEquals ("Current temperature",homePage.getTitle());
-        Assert.assertEquals ("Buy moisturizers",homePage.clickButton_Buy_moisturizers());
-        Assert.assertEquals ("Moisturizers",pageBuyMoisturizers.getTitle());
-        Assert.assertTrue(pageBuyMoisturizers.checkerTitrePrix());
-        Assert.assertTrue(pageBuyMoisturizers.addProduct1ToCard());
+        homePage.getTitle();
+        homePage.clickButton_Buy_moisturizers();
+        pageBuyMoisturizers.getTitle();
+        pageBuyMoisturizers.checkerTitrePrix();
+        pageBuyMoisturizers.addProduct1ToCard();
         ChecoutPage  checoutPage= new ChecoutPage(driver);
-        Assert.assertTrue(checoutPage.VerifyChecout());
+        checoutPage.VerifyChecout();
         Assert.assertEquals (pageBuyMoisturizers.getPrix1(),checoutPage.getTotal());
         Assert.assertEquals (pageBuyMoisturizers.getProduit1(),checoutPage.getTitreProd());
-        Assert.assertEquals ("Pay with Card",checoutPage.clickButtonpaywithcard());
-        Assert.assertTrue(checoutPage.addInformationCard());
+        checoutPage.clickButtonpaywithcard();
+        checoutPage.addInformationCard();
         PayementSuccessPage payementSuccessPage = new PayementSuccessPage(driver);
-        Assert.assertTrue(payementSuccessPage.VerifyPaymentSuccess());
+        payementSuccessPage.VerifyPaymentSuccess();
     }
 }

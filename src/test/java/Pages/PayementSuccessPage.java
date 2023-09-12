@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class PayementSuccessPage {
     WebDriver driver ;
@@ -11,9 +12,10 @@ public class PayementSuccessPage {
         this.driver=driver;
     }
 
-    public boolean VerifyPaymentSuccess(){
-        boolean b=false;
+    public void VerifyPaymentSuccess(){
+        boolean b;
         b = driver.findElement(title).isDisplayed();
-        return  b;
+        Assert.assertTrue(b);
+
     }
 }

@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -20,12 +21,13 @@ public class buyMoisturizersPage {
 
     String prix1;
     String produit1;
-    public String getTitle(){
+    public void getTitle(){
         String titre = driver.findElement(title).getText();
-        return  titre;
+        Assert.assertEquals ("Moisturizers",titre);
+
     }
 
-    public boolean checkerTitrePrix() {
+    public void checkerTitrePrix() {
 
         boolean result=false;
         List<WebElement> listePrix = driver.findElements(prix) ;
@@ -35,13 +37,16 @@ public class buyMoisturizersPage {
         for (int i=0; i<6;i++) {
 
                 result = listProducts.get(i).isDisplayed() && listePrix.get(i).isDisplayed();
-                    if (!result) return result ;
+                    if (!result) break ;
 
             }
-            return result;
+
+        Assert.assertTrue(result);
+
+
     }
 
-    public boolean addProduct1ToCard(){
+    public void addProduct1ToCard(){
         boolean b =false;
                 //add item1 to cart
         driver.findElement(addProduct1).click();
@@ -50,7 +55,9 @@ public class buyMoisturizersPage {
              b = true;
         }
         driver.findElement(cart1).click();
-        return b;
+
+        Assert.assertTrue(b);
+
 
     }
 

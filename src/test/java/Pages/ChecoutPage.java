@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class ChecoutPage {
     WebDriver driver ;
@@ -20,10 +21,10 @@ public class ChecoutPage {
         this.driver=driver;
     }
 
-    public boolean VerifyChecout(){
-        boolean b=false;
+    public void VerifyChecout(){
+        boolean b;
         b = driver.findElement(total).isDisplayed();
-        return  b;
+        Assert.assertTrue(b);
     }
 
     public String getTotal() {
@@ -37,13 +38,14 @@ public class ChecoutPage {
         return driver.findElement(titre).getText();
     }
 
-    public String clickButtonpaywithcard(){
+    public void clickButtonpaywithcard(){
 
         String paywithcard1 = driver.findElement(paywithcard).getText();
         driver.findElement(paywithcard).click();
-        return  paywithcard1;
+        Assert.assertEquals ("Pay with Card",paywithcard1);
+
     }
-    public boolean addInformationCard() {
+    public void addInformationCard() {
 
         driver.switchTo().frame(0);
         driver.findElement(email).sendKeys("oudalila@gmail.com");
@@ -57,7 +59,6 @@ public class ChecoutPage {
         driver.findElement(Acheter).click();
         driver.switchTo().defaultContent();
 
-        return  true;
 
     }
 
