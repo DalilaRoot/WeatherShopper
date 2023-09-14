@@ -16,7 +16,7 @@ public class SetupTeardownTest {
 
         driver =new FirefoxDriver() ;
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://weathershopper.pythonanywhere.com/");
     }
     public static WebDriver getDriver(){
