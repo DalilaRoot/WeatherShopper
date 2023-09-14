@@ -20,16 +20,17 @@ public class WetherShopperSuite extends SetupTeardownTest {
         driver=getDriver();
         HomePage homePage = new HomePage(driver);
         buyMoisturizersPage pageBuyMoisturizers = new buyMoisturizersPage(driver);
-
         homePage.getTitle();
         homePage.clickButton_Buy_moisturizers();
         pageBuyMoisturizers.getTitle();
         pageBuyMoisturizers.checkerTitrePrix();
+        String Priceproduct1= pageBuyMoisturizers.getPrix1();
+        String titleProduct1=pageBuyMoisturizers.getProduit1();
         pageBuyMoisturizers.addProduct1ToCard();
         ChecoutPage  checoutPage= new ChecoutPage(driver);
         checoutPage.VerifyChecout();
-        Assert.assertEquals (pageBuyMoisturizers.getPrix1(),checoutPage.getTotal());
-        Assert.assertEquals (pageBuyMoisturizers.getProduit1(),checoutPage.getTitreProd());
+        checoutPage.CheckTotal(Priceproduct1);
+        checoutPage.ChecktiteProduct(titleProduct1);
         checoutPage.clickButtonpaywithcard();
         checoutPage.addInformationCard();
         PayementSuccessPage payementSuccessPage = new PayementSuccessPage(driver);

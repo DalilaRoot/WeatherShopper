@@ -1,5 +1,6 @@
 package Pages;
 
+import Constants.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -27,16 +28,21 @@ public class ChecoutPage {
         Assert.assertTrue(b);
     }
 
-    public String getTotal() {
+    public void CheckTotal(String price) {
         String t=driver.findElement(total).getText();
         t = t.replaceAll("[^0-9]", "");
-        return t;
+        Assert.assertEquals(t, price);
     }
+    public void ChecktiteProduct(String titre){
 
+        Assert.assertTrue(titre.equalsIgnoreCase(getTitreProd()));
+
+    }
     public String getTitreProd() {
 
         return driver.findElement(titre).getText();
     }
+
 
     public void clickButtonpaywithcard(){
 
@@ -48,14 +54,14 @@ public class ChecoutPage {
     public void addInformationCard() {
 
         driver.switchTo().frame(0);
-        driver.findElement(email).sendKeys("oudalila@gmail.com");
-        driver.findElement(cardNumber).sendKeys("3434");
-        driver.findElement(cardNumber).sendKeys("343434");
-        driver.findElement(cardNumber).sendKeys("34343");
-        driver.findElement(date).sendKeys("12");
-        driver.findElement(date).sendKeys("2025");
-        driver.findElement(cvv).sendKeys("177");
-        driver.findElement(CP).sendKeys("AAA");
+        driver.findElement(email).sendKeys(Data.email);
+        driver.findElement(cardNumber).sendKeys(Data.cardNumber.trim());
+        driver.findElement(cardNumber).sendKeys(Data.cardNumber.trim());
+        driver.findElement(cardNumber).sendKeys(Data.cardNumber.trim());
+        driver.findElement(date).sendKeys(Data.expDateMonth);
+        driver.findElement(date).sendKeys(Data.expDateYear);
+        driver.findElement(cvv).sendKeys(Data.cvv);
+        driver.findElement(CP).sendKeys(Data.postalCode);
         driver.findElement(Acheter).click();
         driver.switchTo().defaultContent();
 
