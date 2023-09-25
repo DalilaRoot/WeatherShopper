@@ -19,8 +19,8 @@ public class buyMoisturizersPage {
     By produits=By.xpath("//p[@class='font-weight-bold top-space-10']");
     By prix=By.xpath("//p[contains(text() , 'Price')]");
 
-    String prix1;
-    String produit1;
+    static String  prix1;
+    static String  produit1;
     public void getTitle(){
         String titre = driver.findElement(title).getText();
         Assert.assertEquals ("Moisturizers",titre);
@@ -61,10 +61,10 @@ public class buyMoisturizersPage {
 
     }
 
-    public String getPrix1(){
+    public static String getPrix1(){
         return prix1;
     }
-    public String getProduit1(){
+    public static String getProduit1(){
         return produit1;
     }
 }

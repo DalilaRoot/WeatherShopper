@@ -28,14 +28,14 @@ public class ChecoutPage {
         Assert.assertTrue(b);
     }
 
-    public void CheckTotal(String price) {
+    public void CheckTotal() {
         String t=driver.findElement(total).getText();
         t = t.replaceAll("[^0-9]", "");
-        Assert.assertEquals(t, price);
+        Assert.assertEquals(t, buyMoisturizersPage.getPrix1());
     }
-    public void ChecktiteProduct(String titre){
+    public void ChecktiteProduct(){
 
-        Assert.assertTrue(titre.equalsIgnoreCase(getTitreProd()));
+        Assert.assertTrue(buyMoisturizersPage.getProduit1().equalsIgnoreCase(getTitreProd()));
 
     }
     public String getTitreProd() {
